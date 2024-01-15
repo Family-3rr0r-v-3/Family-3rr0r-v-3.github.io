@@ -172,7 +172,7 @@ body {
 /* Positioning for the emojis - play around with the values to change the placement of your decorations */ 
 .bday-decor--top-right { 
   position: absolute;
-  bottom: -210px;
+  bottom: -190px;
   right: -100px;
 }
 
