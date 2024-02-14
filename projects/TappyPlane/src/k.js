@@ -4,7 +4,8 @@ import kaboom from 'https://unpkg.com/kaboom@3000.1.17/dist/kaboom.mjs';
 //* Creamos el objeto Kaboom y le asignamos las propiedades
 //? Utilizaremos Kaboom de forma global, por lo tanto, no es necesario colocar la propiedad 'global'
 
-const s = false;
+const w = window.innerWidth;
+let s = false;
 w <= 800 ? (s = true) : (s = false);
 
 const k = kaboom({
