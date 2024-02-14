@@ -13,6 +13,8 @@ switch(screen.orientation.type){
         if(h <= 400) {
             console.log('landscape primary');
             scale = 0.7;
+        }else if(w >= 720){
+            scale = 0.7;
         }
         break;
     case 'landscape-secondary':
@@ -21,6 +23,8 @@ switch(screen.orientation.type){
     case 'portrait-primary':
         if(w <= 400) {
             console.log('reducir escala en vertical');
+            scale = 0.5;
+        }else if(w >= 720){
             scale = 0.5;
         }
         break;
