@@ -13,10 +13,6 @@ const k = kaboom({
 debug.inspect = false;
 audioCtx = new AudioContext();
 
-if(isTouchscreen()){
-k.scale = 0.5; 
-}
-
 //* Establecemeos la ruta principal de los recursos
 loadRoot('resources/');
 //* Ocultamos el cursor para poder dibujar nuestro cursor
