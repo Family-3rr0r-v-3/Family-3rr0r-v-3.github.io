@@ -13,7 +13,7 @@ const k = kaboom({
 debug.inspect = false;
 audioCtx = new AudioContext();
 
-If(isTouchscreen()){
+if(isTouchscreen()){
 k.scale = 0.5; 
 }
 
