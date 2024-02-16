@@ -73,7 +73,7 @@ function gameOver(){
 
 			drawSprite({
 				sprite: 'gameOver',
-				pos: vec2((width()/2) - (412/2), titleY),
+				pos: vec2((width()/2) - (412/2), titleY), 
 			});
 
 		});
