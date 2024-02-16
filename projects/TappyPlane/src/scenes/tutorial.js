@@ -26,7 +26,7 @@ function tutorial(){
         const guideTextA = add([
             text(textToShow, {
                 font: 'kfuture',
-                size: 32
+                size: 18
             }),
             pos(0, 0),
         ]);
