@@ -11,7 +11,7 @@ function tutorial(){
         const spriteID = isTouchscreen() ? 'mobile_tutorial' : 'pc_tutorial';
         const textToShow = isTouchscreen() ? 'Toque la pantalla para elevar la avioneta' : 'Presione la pantalla para elevar la avioneta';
 
-        const c = add(cursor);
+        const c = add(options.cursor);
         onUpdate(() => {
             c.pos = mousePos();
         });
