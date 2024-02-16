@@ -92,7 +92,7 @@ function titleScene(){
         const btn = button({
             btnText: 'Play',
             onClickEvent: () => {
-                go('colorSelector', {
+                go('tutorial', {
                     cursor: cursors,
                 });
             }

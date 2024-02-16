@@ -12,7 +12,7 @@ const k = kaboom({
     width: 800, //? Ancho del canvas
     height: 480, //? Alto del canvas
     canvas: document.querySelector('#game'), //* Referencia al canvas del documento HTML
-    background: [218, 239, 247], //? Color de fondo de la ventana
+    background: [45, 45, 45], //? Color de fondo de la ventana
     debug: true,
     stretch: s,
     letterbox: s,

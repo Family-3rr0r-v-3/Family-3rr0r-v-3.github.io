@@ -1,5 +1,8 @@
 import button from "../objects/button.js";
 
+// Super Tank Nes -> game (online)
+// duck hunt -> game
+
 function gameOver(){
 
 	scene('gameOver', (options = {

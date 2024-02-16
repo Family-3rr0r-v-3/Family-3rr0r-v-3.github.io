@@ -124,6 +124,35 @@ function loadSprites(){
             },
         }
     });
+    // tutorial
+    loadSprite('pc_tutorial', 'UI/pc_tuto.png', {
+        x: 0,
+        y: 0,
+        sliceX: 5,
+        sliceY: 5,
+        anims: {
+            idle: {
+                from: 0,
+                to: 23,
+                loop: true,
+                speed: 32
+            }
+        }
+    });
+    loadSprite('mobile_tutorial', 'UI/mobile_tuto.png', {
+        x: 0,
+        y: 0,
+        sliceX: 5,
+        sliceY: 5,
+        anims: {
+            idle: {
+                from: 0,
+                to: 23,
+                loop: true,
+                speed: 32
+            }
+        }
+    });
     // medals
     loadSprite('medalBronze', 'UI/medalBronze.png');
     loadSprite('medalSilver', 'UI/medalSilver.png');
