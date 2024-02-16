@@ -1,7 +1,7 @@
 
 function tutorial(){
 
-    screen('tutorial', (options = {
+    scene('tutorial', (options = {
         cursor,
     }) => {
 
