@@ -211,11 +211,16 @@ function gameplay(){
 
 		onUpdate(() => {
 			if(player.pos.y > height()){
-				go('gameOver', {
-					cursor: c,
-					score: points,
-					playerSprite: options.playerSprite,
-					p: player,
+				
+				pause = true;
+				const loseSound = play('lose', { volume: 0.5 });
+				loseSound.onEnd(() => {
+					go('gameOver', {
+						cursor: c,
+						score: points,
+						playerSprite: options.playerSprite,
+						p: player,
+					});
 				});
 			}
 		});
