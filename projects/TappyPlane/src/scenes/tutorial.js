@@ -55,7 +55,7 @@ function tutorial(){
         const title = add([
             text('TUTORIAL', {
                 font: 'kfuture',
-                size: 45
+                size: 42
             }),
             color(0,0,0),
             pos(),
