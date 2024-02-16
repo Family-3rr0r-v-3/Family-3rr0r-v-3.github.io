@@ -66,10 +66,17 @@ function tutorial(){
             sprite(spriteID, {
                 anim: 'idle'
             }),
-            pos(100, 100),
+            pos(-945),
         ]);
-        guide.pos.x = (width()/2) - (189/2);
+        const guideMaxX = (width()/2) - (189/2);
+        let currentGuideX = -945;
+        guide.pos.x = currentGuideX;
         guide.pos.y = isTouchscreen() ? (height()/2) - (137/2) : (height()/2) - (152/2);
+
+        onUpdate(() => {
+            if(guide.pos.x < guideMaxX) currentGuideX += 20;
+            if(guide.pos.x > guideMaxX) currentGuideX = guideMaxX;
+        });
 
         const guideTextA = add([
             text(textToShow, {
