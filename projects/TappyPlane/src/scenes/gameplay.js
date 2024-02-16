@@ -122,7 +122,7 @@ function gameplay(){
 		player.onCollide('rock', (rock) => {
 			if(!isOver){
 				pause = true;
-				isOver = false;
+				isOver = true;
 				const loseSound = play('lose', { volume: 0.5 });
 				loseSound.onEnd(() => {
 					go('gameOver', {
