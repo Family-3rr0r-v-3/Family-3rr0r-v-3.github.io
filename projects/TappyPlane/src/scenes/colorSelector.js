@@ -159,7 +159,7 @@ function colorSelector(){
             area(),
         ]);
         leftBtn.onClick(() => {
-            play('click', { volume: 0.3, });
+            play('select', { volume: 0.3, });
             if(click){
                 for(let i = 0; i < allPlanes.length; i++){
                     allPlanes[i].show = false;
@@ -197,7 +197,7 @@ function colorSelector(){
             area(),
         ]);
         rightBtn.onClick(() => {
-            play('click', { volume: 0.3, });
+            play('select', { volume: 0.3, });
             if(click){
                 for(let i = 0; i < allPlanes.length; i++){
                     allPlanes[i].show = false;

@@ -136,6 +136,8 @@ function loadSprites(){
 //? Carga todos los sonidos para el juego
 function loadSounds(){
     loadSound('click', 'sounds/click.ogg');
+    loadSound('select', 'sounds/select.ogg');
+    loadSound('lose', 'sounds/lose03.ogg');
 }
 
 //? 
