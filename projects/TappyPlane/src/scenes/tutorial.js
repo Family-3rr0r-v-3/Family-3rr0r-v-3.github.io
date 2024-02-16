@@ -57,6 +57,7 @@ function tutorial(){
                 font: 'kfuture',
                 size: 45
             }),
+            color(0,0,0),
             pos(),
         ]);
         title.pos.x = (width()/2) - (title.width/2);
@@ -75,13 +76,15 @@ function tutorial(){
                 font: 'kfuture',
                 size: 22
             }),
+            color(0, 0, 0),
             pos(0, 0),
         ]);
         guideTextA.pos.x = (width()/2) - (guideTextA.width/2);
-        guideTextA.pos.y = height() - (guideTextA.height + 70);
+        guideTextA.pos.y = height() - (guideTextA.height + 160);
 
         const continueBtn = button({
             btnText: 'continue',
+            btnTextSize: 16,
             onClickEvent: () => {
                 go('colorSelector', {
                     cursor: c,
