@@ -18,6 +18,7 @@ function gameplay(){
 		const rockSpeed = 160; //? Velocidad a la que se moveran las rocas
 		let pause = true; //? Determina si el juego esta en pausa
 		let ready = false; //? Controla que la animación de inicio se ejecute correctamente
+		let isOver = false;
 		let playerAngle = 35; //? Angulo de inclinación de la avioneta
 
 		setGravity(0); //? Establecemos el valor de la gravedad
@@ -119,16 +120,19 @@ function gameplay(){
 		});
 
 		player.onCollide('rock', (rock) => {
-			pause = true;
-			const loseSound = play('lose', { volume: 0.5 });
-			loseSound.onEnd(() => {
-				go('gameOver', {
-					cursor: c,
-					score: points,
-					playerSprite: options.playerSprite,
-					p: player,
+			if(!isOver){
+				pause = true;
+				isOver = false;
+				const loseSound = play('lose', { volume: 0.5 });
+				loseSound.onEnd(() => {
+					go('gameOver', {
+						cursor: c,
+						score: points,
+						playerSprite: options.playerSprite,
+						p: player,
+					});
 				});
-			});
+			}
 		});
 
 		//* ---------------------------------------------------------------------------------------------
@@ -210,9 +214,10 @@ function gameplay(){
 		});
 
 		onUpdate(() => {
-			if(player.pos.y > height()){
+			if(player.pos.y > height() && !isOver){
 				
 				pause = true;
+				isOver = true;
 				const loseSound = play('lose', { volume: 0.5 });
 				loseSound.onEnd(() => {
 					go('gameOver', {
