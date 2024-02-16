@@ -84,7 +84,7 @@ function tutorial(){
 
         const continueBtn = button({
             btnText: 'continue',
-            btnTextSize: 16,
+            btnTextSize: 19,
             onClickEvent: () => {
                 go('colorSelector', {
                     cursor: c,
@@ -93,6 +93,13 @@ function tutorial(){
         });
         continueBtn.pos.x = (width()/2) - (196/2);
         continueBtn.pos.y = height() - 90;
+
+        const circleRed = add([
+            sprite('circleRed'),
+            pos(),
+        ]);
+        circleRed.pos.x = width() - 70;
+        circleRed.pos.y = height() - 70;
 
         onKeyPress("space", () => {
             go('colorSelector', {

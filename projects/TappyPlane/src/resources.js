@@ -157,6 +157,19 @@ function loadSprites(){
     loadSprite('medalBronze', 'UI/medalBronze.png');
     loadSprite('medalSilver', 'UI/medalSilver.png');
     loadSprite('medalGold', 'UI/medalGold.png');
+    // circle red
+    loadSprite('circleRed', 'UI/circleRed.png', {
+        x: 0,
+        y: 0,
+        sliceX: 3,
+        sliceY: 3,
+        anims: {
+            from: 0,
+            to: 9,
+            loop: false,
+            speed: 8
+        }
+    });
 
     // ground
     loadSprite('groundDirt', 'groundDirt.png');
