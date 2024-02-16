@@ -62,6 +62,13 @@ function tutorial(){
         ]);
         title.pos.x = (width()/2) - (title.width/2);
 
+
+        //todo GUIAS
+        let currentGuide = 0;
+        //! 0 -> se muestra la forma de control de la avioneta
+        //! 1 -> se indica que debe evitar chocar con las rocas
+        //! 2 -> inidica que debe recolectar las estrellas para ganar puntos
+
         const guide = add([
             sprite(spriteID, {
                 anim: 'idle'
@@ -72,8 +79,15 @@ function tutorial(){
         guide.pos.y = isTouchscreen() ? (height()/2) - (137/2) : (height()/2) - (152/2);
 
         onUpdate(() => {
-            if(guide.pos.x < guideMaxX) guide.pos.x += 20;
-            if(guide.pos.x > guideMaxX) guide.pos.x = guideMaxX;
+            if(currentGuide == 0){
+                if(guide.pos.x < guideMaxX) guide.pos.x += 20;
+                if(guide.pos.x > guideMaxX) guide.pos.x = guideMaxX;
+            }else{
+                if(guide.pos.x < width()){
+                    guide.pos.x += 20;
+                }
+                if(guide.pos.x >= width()) guide.pos.x = -189;
+            }
         });
 
         const guideTextA = add([
@@ -107,9 +121,7 @@ function tutorial(){
         circleRed.pos.y = height() - 70;
 
         onKeyPress("space", () => {
-            go('colorSelector', {
-                cursor: c,
-            })
+            currentGuide++;
         })        
 
     });
