@@ -15,7 +15,7 @@ function gameOver(){
 
 		const c = add(options.cursor);
 		onUpdate(() => {
-
+			if(titleY <= 20) titleY += 4;
 			c.pos = mousePos();
 		});
 
@@ -63,12 +63,6 @@ function gameOver(){
 				sprite: 'gameOver',
 				pos: vec2(20, titleY),
 			});
-		});
-
-		onDraw(() => {
-
-			
-
 		});
 
 		//* ---------------------------------------------------------------------------------------------
@@ -175,7 +169,7 @@ function gameOver(){
 		const buttonSpeed = 8;
 
 		onUpdate(() => {
-			if(titleY <= 20) titleY += 8;
+			
 
 			if(btn.pos.x > btnMaxX) btn.pos.x -= buttonSpeed;
 			if(btn.pos.x < btnMaxX) btn.pos.x = btnMaxX;
