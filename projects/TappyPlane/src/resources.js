@@ -166,7 +166,7 @@ function loadSprites(){
         anims: {
             idle: {
                 from: 0,
-                to: 9,
+                to: 8,
                 loop: false,
                 speed: 8
             }
