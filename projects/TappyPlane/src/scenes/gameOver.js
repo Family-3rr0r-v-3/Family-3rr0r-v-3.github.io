@@ -20,15 +20,18 @@ function gameOver(){
 			c.pos = mousePos();
 		});
 
-		//* ---------------------------------------------------------------------------------------------
-		//todo DIBUJADO DEL FONDO CON EFECTO PARALLAX
-		//* ---------------------------------------------------------------------------------------------
-		//? Fondo parallax
-		/**
-		 ** Esta formna de dibujar el fondo parallax es el mas comun, ya que podemos hacer un fondo con efecto de movimiento horizontal
-		 ** Solo hace falta dibujar la imagen de fondo dos veces y hacer que una corra detras de la otra
-		*/
+		onDraw(() => {
 
+			drawSprite({
+				sprite: 'gameOver',
+				pos: vec2((width()/2) - (412/2), titleY),
+			});
+
+		});
+		
+		//* ---------------------------------------------------------------------------------------------
+		//todo FONDO
+		//* ---------------------------------------------------------------------------------------------
 		let bgx1 = 0; //? Posicion en x del primer sprite de fondo
 		let bgx2 = 800; //? Posicion en x del segundo sprite de fondo
 
@@ -73,11 +76,11 @@ function gameOver(){
 
 			drawSprite({
 				sprite: 'gameOver',
-				pos: vec2((width()/2) - (412/2), titleY), 
+				pos: vec2((width()/2) - (412/2), titleY),
 			});
 
 		});
-		
+
 		//* ---------------------------------------------------------------------------------------------
 		//todo PUNTAJE
 		//* ---------------------------------------------------------------------------------------------
@@ -99,9 +102,9 @@ function gameOver(){
 		]);
 
 		let medalSprite;
-		if(options.score < 250) medalSprite = 'Bronze';
-		if(options.score > 250 && options.score < 500) medalSprite = 'Silver';
-		if(options.score >= 1000) medalSprite = 'Gold';
+		if(options.score <= 250) medalSprite = 'Bronze';
+		if(options.score > 250 && options.score <= 500) medalSprite = 'Silver';
+		if(options.score > 1000) medalSprite = 'Gold';
 
 		const medal = add([
 			sprite(`medal${medalSprite}`),
