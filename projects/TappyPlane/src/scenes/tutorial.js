@@ -15,6 +15,42 @@ function tutorial(){
             c.pos = mousePos();
         });
 
+        let bgx1 = 0; //? Posicion en x del primer sprite de fondo
+		let bgx2 = 800; //? Posicion en x del segundo sprite de fondo
+
+		onUpdate(() => {
+			//* Actualizamos la posicion del fondo siemnpre y cuando el juego no este pausado
+			if(!pause) bgx1 -= 2;
+			if(!pause) bgx2 -= 2;
+
+			//* Reposicionamos los sprites de fondo cuando salen de la pantalla
+			if(bgx1 <= -800){
+				bgx1 = 800;
+			}
+			if(bgx2 <= -800){
+				bgx2 = 800;
+			}
+		});
+
+		onDraw(() => {
+			//* Se dibujan los sprites de fondo, uno siempre sigue al otro para crear el efecto de parallax
+			//! primer dibujado
+			drawSprite({
+				sprite: 'background',
+				width: 800,
+				height: 480,
+				pos: vec2(bgx1, 0),
+			});
+
+			//! segundo dibujado
+			drawSprite({
+				sprite: 'background',
+				width: 800,
+				height: 480,
+				pos: vec2(bgx2, 0),
+			});
+		});
+
         const title = add([
             text('TUTORIAL', {
                 font: 'kfuture',
