@@ -20,18 +20,15 @@ function gameOver(){
 			c.pos = mousePos();
 		});
 
-		onDraw(() => {
-
-			drawSprite({
-				sprite: 'gameOver',
-				pos: vec2((width()/2) - (412/2), titleY),
-			});
-
-		});
-		
 		//* ---------------------------------------------------------------------------------------------
-		//todo FONDO
+		//todo DIBUJADO DEL FONDO CON EFECTO PARALLAX
 		//* ---------------------------------------------------------------------------------------------
+		//? Fondo parallax
+		/**
+		 ** Esta formna de dibujar el fondo parallax es el mas comun, ya que podemos hacer un fondo con efecto de movimiento horizontal
+		 ** Solo hace falta dibujar la imagen de fondo dos veces y hacer que una corra detras de la otra
+		*/
+
 		let bgx1 = 0; //? Posicion en x del primer sprite de fondo
 		let bgx2 = 800; //? Posicion en x del segundo sprite de fondo
 
@@ -69,28 +66,18 @@ function gameOver(){
 		});
 
 		//* ---------------------------------------------------------------------------------------------
-		//todo TITULO DEL JUEGO
+		//todo DIBUJADO DEL TITULO
 		//* ---------------------------------------------------------------------------------------------
-        // 61 x 64 -> letter size
-        //? Funcion de kaboom que nos permite dibujar elementos
-        onDraw(() => {
 
-            let x = width()/2 - 187.5;
-            for(let i = 0; i < titleChars.length; i++){
-                if(titleChars[i] !== ' '){
-                    drawSprite({
-                        sprite: `l${titleChars[i]}`,
-                        width: 30.5,
-                        height: 32,
-                        pos: vec2(x, 20)
-                    });
-                    x += 30.5 + 5;
-                }else{
-                    x += 30;
-                }
-            }
-        });
+		onDraw(() => {
 
+			drawSprite({
+				sprite: 'gameOver',
+				pos: vec2((width()/2) - (412/2), titleY),
+			});
+
+		});
+		
 		//* ---------------------------------------------------------------------------------------------
 		//todo PUNTAJE
 		//* ---------------------------------------------------------------------------------------------
@@ -112,9 +99,9 @@ function gameOver(){
 		]);
 
 		let medalSprite;
-		if(options.score <= 250) medalSprite = 'Bronze';
-		if(options.score > 250 && options.score <= 500) medalSprite = 'Silver';
-		if(options.score > 1000) medalSprite = 'Gold';
+		if(options.score < 250) medalSprite = 'Bronze';
+		if(options.score > 250 && options.score < 500) medalSprite = 'Silver';
+		if(options.score >= 1000) medalSprite = 'Gold';
 
 		const medal = add([
 			sprite(`medal${medalSprite}`),
