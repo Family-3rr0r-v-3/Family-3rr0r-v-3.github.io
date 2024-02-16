@@ -138,6 +138,7 @@ function loadSounds(){
     loadSound('click', 'sounds/click.ogg');
     loadSound('select', 'sounds/select.ogg');
     loadSound('lose', 'sounds/lose03.ogg');
+    loadSound('toGame', 'sounds/newLife.ogg');
 }
 
 //? 

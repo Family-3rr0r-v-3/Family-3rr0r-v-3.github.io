@@ -232,6 +232,7 @@ function colorSelector(){
         // 196 x 70
         const selectBtn = button({
             btnText: 'Select',
+            sound: 'toGame',
             onClickEvent: () => {
                 const rockTypes = [
                     'n', // normal

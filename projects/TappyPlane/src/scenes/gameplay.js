@@ -126,7 +126,7 @@ function gameplay(){
 					cursor: c,
 					score: points,
 					playerSprite: options.playerSprite,
-					p: player
+					p: player,
 				});
 			});
 		});
