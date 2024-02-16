@@ -69,13 +69,11 @@ function tutorial(){
             pos(-945),
         ]);
         const guideMaxX = (width()/2) - (189/2);
-        let currentGuideX = -945;
-        guide.pos.x = currentGuideX;
         guide.pos.y = isTouchscreen() ? (height()/2) - (137/2) : (height()/2) - (152/2);
 
         onUpdate(() => {
-            if(guide.pos.x < guideMaxX) currentGuideX += 20;
-            if(guide.pos.x > guideMaxX) currentGuideX = guideMaxX;
+            if(guide.pos.x < guideMaxX) guide.pos.x += 20;
+            if(guide.pos.x > guideMaxX) guide.pos.x = guideMaxX;
         });
 
         const guideTextA = add([
