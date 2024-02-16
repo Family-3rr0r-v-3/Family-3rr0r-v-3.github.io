@@ -66,7 +66,7 @@ function tutorial(){
             sprite(spriteID, {
                 anim: 'idle'
             }),
-            pos(-945),
+            pos(-189),
         ]);
         const guideMaxX = (width()/2) - (189/2);
         guide.pos.y = isTouchscreen() ? (height()/2) - (137/2) : (height()/2) - (152/2);
