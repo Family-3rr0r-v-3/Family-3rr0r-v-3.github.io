@@ -1,3 +1,4 @@
+import button from "../objects/button.js";
 
 function tutorial(){
 
@@ -20,8 +21,8 @@ function tutorial(){
 
 		onUpdate(() => {
 			//* Actualizamos la posicion del fondo siemnpre y cuando el juego no este pausado
-			if(!pause) bgx1 -= 2;
-			if(!pause) bgx2 -= 2;
+			bgx1 -= 2;
+			bgx2 -= 2;
 
 			//* Reposicionamos los sprites de fondo cuando salen de la pantalla
 			if(bgx1 <= -800){
@@ -77,7 +78,18 @@ function tutorial(){
             pos(0, 0),
         ]);
         guideTextA.pos.x = (width()/2) - (guideTextA.width/2);
-        guideTextA.pos.y = height() - (guideTextA.height + 25);
+        guideTextA.pos.y = height() - (guideTextA.height + 70);
+
+        const continueBtn = button({
+            btnText: 'continue',
+            onClickEvent: () => {
+                go('colorSelector', {
+                    cursor: c,
+                })
+            }
+        });
+        continueBtn.pos.x = (width()/2) - (196/2);
+        continueBtn.pos.y = height() - 90;
 
         onKeyPress("space", () => {
             go('colorSelector', {
