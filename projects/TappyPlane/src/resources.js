@@ -164,10 +164,12 @@ function loadSprites(){
         sliceX: 3,
         sliceY: 3,
         anims: {
-            from: 0,
-            to: 9,
-            loop: false,
-            speed: 8
+            idle: {
+                from: 0,
+                to: 9,
+                loop: false,
+                speed: 8
+            }
         }
     });
 

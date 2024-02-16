@@ -95,7 +95,7 @@ function tutorial(){
         continueBtn.pos.y = height() - 90;
 
         const circleRed = add([
-            sprite('circleRed'),
+            sprite('circleRed', { anim: 'idle' }),
             pos(),
         ]);
         circleRed.pos.x = width() - 70;
