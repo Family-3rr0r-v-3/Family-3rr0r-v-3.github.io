@@ -8,8 +8,16 @@ function tutorial(){
 
         //* Dibujado del titulo de la ventana
 
+        let isReady = false;
+
         const spriteID = isTouchscreen() ? 'mobile_tutorial' : 'pc_tutorial';
-        const textToShow = isTouchscreen() ? 'Toque la pantalla para elevar la avioneta' : 'Presione la pantalla para elevar la avioneta';
+        const textToShow = isTouchscreen() ? 'Toque la pantalla para elevar la avioneta' : 'Click en la pantalla para elevar la avioneta';
+        const rockTutoMessage = 'Evite chocar contra las rocas'
+        const starTutoMessage = 'Recolecte la mayor cantidad de estrellas'
+
+        let clickTutoOk = false;
+        let rockTutoOk = false;
+        let starsTutoOk = false;
 
         const c = add(options.cursor);
         onUpdate(() => {
@@ -52,6 +60,13 @@ function tutorial(){
 			});
 		});
 
+        add([
+            rect(width(), height()),
+            pos(0, 0),
+            color(45, 45, 45),
+            opacity(0.38),   
+        ]);
+
         const title = add([
             text('TUTORIAL', {
                 font: 'kfuture',
@@ -79,15 +94,73 @@ function tutorial(){
         const guideMaxX = (width()/2) - (189/2);
         guide.pos.y = isTouchscreen() ? (height()/2) - (137/2) : (height()/2) - (152/2);
 
+        const rockGuide = add([
+            sprite('rocksTuto', { anim: 'idle', }),
+            pos(-117),
+        ]);
+        const rocksTutoMaxX = ((width()/2) - (117/2)) - 45;
+        rockGuide.pos.y = ((height()/2) - (216/2)) - 55;
+
+        const starsGuide = add([
+            sprite('starsTuto', { anim: 'idle', }),
+            pos(-165, 0),
+        ]);
+        const starsTutoMaxX = ((width()/2) - (165/2)) - 30;
+        starsGuide.pos.y = ((height()/2) - (240/2) - 74);
+
         onUpdate(() => {
+            //todo Mostrar
             if(currentGuide === 0){
                 if(guide.pos.x < guideMaxX) guide.pos.x += 20;
-                if(guide.pos.x > guideMaxX) guide.pos.x = guideMaxX;
-            }else{
+                if(guide.pos.x > guideMaxX) { guide.pos.x = guideMaxX; clickTutoOk = true; }
+
+                guideTextA.text = textToShow;
+                guideTextA.pos.x = (width()/2) - (guideTextA.width/2);
+            }
+            if(currentGuide === 1){
+                if(rockGuide.pos.x < rocksTutoMaxX) rockGuide.pos.x += 20;
+                if(rockGuide.pos.x > rocksTutoMaxX) { rockGuide.pos.x = rocksTutoMaxX; rockTutoOk = true; }
+                
+                guideTextA.text = rockTutoMessage;
+                guideTextA.pos.x = (width()/2) - (guideTextA.width/2);
+            }
+            if(currentGuide === 2){
+                if(starsGuide.pos.x < starsTutoMaxX) starsGuide.pos.x += 20;
+                if(starsGuide.pos.x > starsTutoMaxX) { starsGuide.pos.x = starsTutoMaxX; starsTutoOk = true; }
+
+                guideTextA.text = starTutoMessage;
+                guideTextA.pos.x = (width()/2) - (guideTextA.width/2);
+            }
+
+            //todo Ocultar
+            if(currentGuide !== 0){
+                clickTutoOk = false; 
                 if(guide.pos.x >= guideMaxX && guide.pos.x < width()){
                     guide.pos.x += 20;
                 }
-                if(guide.pos.x >= width()) guide.pos.x = -189;
+                if(guide.pos.x >= width()) { guide.pos.x = -189; }
+            }
+            if(currentGuide !== 1){
+                rockTutoOk = false;
+                if(rockGuide.pos.x >= rocksTutoMaxX && rockGuide.pos.x < width()){
+                    rockGuide.pos.x += 20;
+                }
+                if(rockGuide.pos.x >= width()) { rockGuide.pos.x = -117; }
+            }
+            if(currentGuide !== 2){
+                starsTutoOk = false; 
+                if(starsGuide.pos.x >= starsTutoMaxX && starsGuide.pos.x < width()){
+                    starsGuide.pos.x += 20;
+                }
+                if(starsGuide.pos.x >= width()) { starsGuide.pos.x = -165; }
+            }
+
+            //todo Boton
+            if(isReady){
+                continueBtn.pos.y -= 10;
+                if(continueBtn.pos.y <= btnMaxY){
+                    continueBtn.pos.y = btnMaxY;
+                }
             }
         });
 
@@ -112,7 +185,8 @@ function tutorial(){
             }
         });
         continueBtn.pos.x = (width()/2) - (196/2);
-        continueBtn.pos.y = height() - 90;
+        const btnMaxY = height() - 90;
+        continueBtn.pos.y = height();
 
         const circleRed = add([
             sprite('circleRed', { anim: 'idle' }),
@@ -121,12 +195,29 @@ function tutorial(){
         circleRed.pos.x = width() - 70;
         circleRed.pos.y = height() - 70;
 
-        onKeyPress("space", () => {
-            currentGuide++;
-        })        
+        circleRed.onAnimEnd((anim) => {
+            if(anim == 'idle'){
+                currentGuide++;
+                if(currentGuide >= 3) {
+                    currentGuide = 0
+                    if(!isReady) isReady = true;
+                };
+                circleRed.play('idle');
+            }
+        });
 
-    });
+        onClick(() => {
+            if(clickTutoOk || rockTutoOk || starsTutoOk){
+                currentGuide++;
+                if(currentGuide >= 3) {
+                    currentGuide = 0
+                    if(!isReady) isReady = true;
+                };
+                circleRed.play('idle');
+            }
+        });
 
+    }); // fin de la escena
 }
 
 export default tutorial;

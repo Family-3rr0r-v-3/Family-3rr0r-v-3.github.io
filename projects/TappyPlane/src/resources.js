@@ -153,10 +153,45 @@ function loadSprites(){
             }
         }
     });
+    // tuto rocks
+    loadSprite('rocksTuto', 'UI/rockTuto.png', {
+        x: 0, 
+        y: 0,
+        sliceX: 5,
+        sliceY: 4,
+        anims: {
+            idle: {
+                from: 0,
+                to: 19,
+                loop: true,
+                speed: 32
+            }
+        }
+    });
+    // tuto stars
+    loadSprite('starsTuto', 'UI/starsTuto.png', {
+        x: 0,
+        y: 0,
+        sliceX: 7,
+        sliceY: 4,
+        anims: {
+            idle: {
+                from: 0,
+                to: 27,
+                loop: true,
+                speed: 32
+            }
+        }
+    });
+
     // medals
     loadSprite('medalBronze', 'UI/medalBronze.png');
     loadSprite('medalSilver', 'UI/medalSilver.png');
     loadSprite('medalGold', 'UI/medalGold.png');
+    // stars
+    loadSprite('starBronze', 'UI/starBronze.png');
+    loadSprite('starSilver', 'UI/starSilver.png');
+    loadSprite('starGold', 'UI/starGold.png');
     // circle red
     loadSprite('circleRed', 'UI/circleRed.png', {
         x: 0,
@@ -168,7 +203,7 @@ function loadSprites(){
                 from: 0,
                 to: 8,
                 loop: false,
-                speed: 8
+                speed: 2
             }
         }
     });
