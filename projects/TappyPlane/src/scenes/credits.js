@@ -13,6 +13,8 @@ function credits()
 
         //* Vars
 
+        let current_credict = 0; //? max -> 4
+
         //* Background
         let bgx1 = 0;
         let bgx2 = 800;
@@ -366,13 +368,11 @@ function credits()
         //todo *****************************************************************************************************************************
         let rectWidth = 0;
 
-        let current_credict = 0; //? max -> 4
-
         onUpdate(() => {
-            if(current_credict == 0){ programmer.hidden = false; } else { programmer.hidden = true; }
-            if(current_credict == 1){ animation.hidden = false; } else { animation.hidden = true; }
-            if(current_credict == 2){ graphics.hidden = false; } else{ graphics.hidden = true; }
-            if(current_credict == 3){ sound.hidden = false; } else{ sound.hidden = true; }
+            if(current_credict == 0){ programmer.hidden = false; programmer.paused = false; } else { programmer.hidden = true; programmer.paused = true; }
+            if(current_credict == 1){ animation.hidden = false; animation.paused = false; } else { animation.hidden = true; animation.paused = true; }
+            if(current_credict == 2){ graphics.hidden = false; graphics.paused = false; } else{ graphics.hidden = true; graphics.paused = true; }
+            if(current_credict == 3){ sound.hidden = false; sound.paused = faslse; } else{ sound.hidden = true; sound.paused = true; }
         });
 
         onDraw(() => {
