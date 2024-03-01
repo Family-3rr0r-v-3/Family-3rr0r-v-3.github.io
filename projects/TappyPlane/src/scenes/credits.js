@@ -115,7 +115,7 @@ function credits()
                 area(),
             ]);
             p_web_btn.onClick(() => {
-                window.open(data.data.programmer.web);
+                if(current_credict === 0) window.open(data.data.programmer.web);
             });
         }
 
@@ -162,7 +162,7 @@ function credits()
                 area(),
             ]);
             n_insta_btn.onClick(() => {
-                window.open(data.data.animation.instagram);
+                if(current_credict === 1) window.open(data.data.animation.instagram);
             });
         }
         //? Itchio
@@ -235,7 +235,7 @@ function credits()
                 area(),
             ]);
             g_insta_btn.onClick(() => {
-                window.open(data.data.graphics.instagram);
+                if(current_credict === 2) window.open(data.data.graphics.instagram);
             });
         }
         //? Itchio
@@ -334,7 +334,7 @@ function credits()
                 area(),
             ]);
             s_web_btn.onClick(() => {
-                window.open(data.data.sound.web);
+                if(current_credict === 3) window.open(data.data.sound.web);
             });
         }
 
@@ -372,7 +372,7 @@ function credits()
             if(current_credict == 0){ programmer.hidden = false; programmer.paused = false; } else { programmer.hidden = true; programmer.paused = true; }
             if(current_credict == 1){ animation.hidden = false; animation.paused = false; } else { animation.hidden = true; animation.paused = true; }
             if(current_credict == 2){ graphics.hidden = false; graphics.paused = false; } else{ graphics.hidden = true; graphics.paused = true; }
-            if(current_credict == 3){ sound.hidden = false; sound.paused = faslse; } else{ sound.hidden = true; sound.paused = true; }
+            if(current_credict == 3){ sound.hidden = false; sound.paused = false; } else{ sound.hidden = true; sound.paused = true; }
         });
 
         onDraw(() => {
