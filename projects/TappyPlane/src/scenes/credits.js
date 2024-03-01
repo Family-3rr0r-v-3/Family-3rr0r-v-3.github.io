@@ -68,6 +68,9 @@ function credits()
             pos(center().x, 120),
             color(0,0,0)
         ]);
+
+        const programmerY = programmer.pos.y;
+
         const pname = programmer.add([
             text(data.data.programmer.name, { font: 'kfuture' }),
             anchor('center'),
@@ -141,6 +144,9 @@ function credits()
             pos(center().x, 120),
             color(0,0,0)
         ]);
+
+        const animationY = animation.pos.y;
+
         const aname = animation.add([
             text(data.data.animation.name, { font: 'kfuture' }),
             anchor('center'),
@@ -214,6 +220,9 @@ function credits()
             pos(center().x, 120),
             color(0,0,0)
         ]);
+
+        const graphicsY = graphics.pos.y;
+
         const gname = graphics.add([
             text(data.data.graphics.name, { font: 'kfuture' }),
             anchor('center'),
@@ -287,6 +296,9 @@ function credits()
             pos(center().x, 120),
             color(0,0,0)
         ]);
+
+        const soundY = sound.pos.y;
+
         const sname = sound.add([
             text(data.data.sound.name, { font: 'kfuture' }),
             anchor('center'),
@@ -369,10 +381,45 @@ function credits()
         let rectWidth = 0;
 
         onUpdate(() => {
-            if(current_credict == 0){ programmer.hidden = false; programmer.paused = false; } else { programmer.hidden = true; programmer.paused = true; }
-            if(current_credict == 1){ animation.hidden = false; animation.paused = false; } else { animation.hidden = true; animation.paused = true; }
-            if(current_credict == 2){ graphics.hidden = false; graphics.paused = false; } else{ graphics.hidden = true; graphics.paused = true; }
-            if(current_credict == 3){ sound.hidden = false; sound.paused = false; } else{ sound.hidden = true; sound.paused = true; }
+            if(current_credict == 0){ 
+                programmer.hidden = false; 
+                programmer.paused = false;
+                programmer.pos.y = programmerY;
+            } else { 
+                programmer.hidden = true; 
+                programmer.paused = true; 
+                programmer.pos.y = 2000;
+            }
+
+            if(current_credict == 1){ 
+                animation.hidden = false; 
+                animation.paused = false; 
+                animation.pos.y = animationY;
+            } else { 
+                animation.hidden = true; 
+                animation.paused = true; 
+                animation.pos.y = 2000;
+            }
+
+            if(current_credict == 2){ 
+                graphics.hidden = false; 
+                graphics.paused = false; 
+                graphics.pos.y = graphicsY;
+            } else{ 
+                graphics.hidden = true; 
+                graphics.paused = true; 
+                graphics.pos.y = 2000;
+            }
+
+            if(current_credict == 3){ 
+                sound.hidden = false; 
+                sound.paused = false; 
+                sound.pos.y = soundY;
+            } else{ 
+                sound.hidden = true; 
+                sound.paused = true; 
+                sound.pos.y = 2000;
+            }
         });
 
         onDraw(() => {
